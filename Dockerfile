@@ -1,6 +1,6 @@
 # build
 FROM golang:1.14.7-alpine3.12 AS build
-WORKDIR /go/src/${owner:-github.com/IzakMarais}/reporter
+WORKDIR /go/src/${owner:-github.com/sancfc}/reporter
 RUN apk update && apk add make git
 ADD . .
 RUN make build
@@ -9,7 +9,7 @@ RUN make build
 FROM alpine:3.12
 COPY util/texlive.profile /
 
-RUN PACKAGES="wget libswitch-perl" \
+RUN PACKAGES="wget perl-switch" \
         && apk update \
         && apk add $PACKAGES \
         && apk add ca-certificates \
