@@ -30,4 +30,4 @@ RUN PACKAGES="wget perl-switch" \
 
 
 COPY --from=build /go/bin/grafana-reporter /usr/local/bin
-ENTRYPOINT [ "/usr/local/bin/grafana-reporter" ]
+CMD [ "/usr/local/bin/grafana-reporter" ]
